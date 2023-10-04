@@ -1,17 +1,15 @@
-const { NotFoundError, BadRequestError } = require("../errors");
-const { StatusCodes: Code } = require("http-status-codes");
-const bcrypt = require("bcryptjs");
-const User = require("../models/User");
+import { NotFoundError, BadRequestError } from "../errors/index";
+import { StatusCodes as Code } from "http-status-codes";
+import bcrypt from "bcryptjs";
+import { User } from "../models/User";
 
-const userInfo = async (req, res) => {
-	const { firstName, lastName, email, uuid } = req.userFound;
+export const userInfo = async (req: any, res: any) => {
+  const { firstName, lastName, email, uuid } = req.userFound;
 
-	res.status(Code.ACCEPTED).json({
-		firstName,
-		lastName,
-		email,
-		uuid,
-	});
+  res.status(Code.ACCEPTED).json({
+    firstName,
+    lastName,
+    email,
+    uuid,
+  });
 };
-
-module.exports = { userInfo };

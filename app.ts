@@ -1,4 +1,5 @@
-require("dotenv").config();
+// require("dotenv").config();
+import "dotenv/config";
 import "express-async-errors";
 
 import express from "express";
@@ -11,7 +12,7 @@ app.use(express.urlencoded({ extended: true })); //Parse URL-encoded bodies
 // Local Modules
 import rootRouter from "./router/root";
 import { errorHandler, notFound } from "./middleware/error-handler";
-import connectDB from "./db/connection";
+import { connectDB } from "./db/connection";
 
 // Security Packages
 import helmet from "helmet";
@@ -45,7 +46,7 @@ app.use(notFound);
 // Server
 const start = () => {
   const PORT = process.env.PORT || 3000;
-  const DB_URL = process.env.CONNECT_DB;
+  const DB_URL = String(process.env.CONNECT_DB);
   try {
     connectDB(DB_URL).then(() => {
       app.listen(PORT, () => {
