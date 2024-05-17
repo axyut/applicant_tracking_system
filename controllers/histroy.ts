@@ -1,6 +1,6 @@
 
 import { Request, Response } from 'express';
-import User from '../models/User';
+import { User } from '../models/User';
 import Application from '../models/Application';
 import Project from '../models/Project';
 import { BadRequestError } from '../errors';

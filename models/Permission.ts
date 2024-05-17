@@ -1,4 +1,5 @@
-port mongoose, { Schema, Document } from 'mongoose';
+import mongoose from "mongoose";
+import { Schema, Document } from 'mongoose';
 
 // Define interface for Permission document
 interface IPermission extends Document {
